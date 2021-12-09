@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies/home_layout/home_layout.dart';
+import 'package:movies/theme_app/themeApp.dart';
 
 void main() {
   runApp( MyApp());
 }
 
-class MyThemeData{
-  static final Primaty_color=Color.fromRGBO(255, 187, 59, 1.0);
-  static final BotomBarColor=Color.fromRGBO(26, 26, 26, 1.0);
-  static final UnSelectedIemColor=Color.fromRGBO(204, 204, 204, 1.0);
-}
 
 class MyApp extends StatelessWidget {
 
@@ -17,24 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeApp.themeData,
       routes: {
         homeScreen.routeName:(buildcontext)=>homeScreen(),
       },
       initialRoute: homeScreen.routeName,
-      home: Container(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
