@@ -14,42 +14,39 @@ class HomeTab extends StatelessWidget{
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                padding: EdgeInsets.all(8),
-                margin: EdgeInsets.symmetric(vertical: 8) ,
-                height: 200,
-                decoration: BoxDecoration(
-                    color: MyThemeData.darkgray
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text('New Releases'),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context,index){
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ReleasesWidget(
-                                iconBokemark: 'assets/bookmark.png',
-                                imageUrl: 'assets/test.png',
-
-                              ),
-                            );
-                          },
-                          itemCount: 5,
-
+              Stack(
+                children: [
+                  Container(
+                    height: 190,
+                    width: double.infinity,
+                    child: Image.asset('assets/testPhoto.png'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Center(child: Image.asset('assets/play-icon.png',height: 60,width: 60,)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20,top: 100,bottom: 15),
+                    child: Stack(
+                      children: [
+                        Container(
+                          child: Image.asset('assets/Image.png',fit: BoxFit.cover,height: 170,width: 120,),
                         ),
-                      ),
+                        Image.asset('assets/bookmark.png',height: 40,width: 30,)
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 150,top: 200),
+                    child: Text('Dora and the lost city of gold' ,  style: TextStyle(
+                        color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 220,left: 150),
+                    child: Text('2019  PG-13  2h 7m' ,  style: TextStyle(
+                      color: Colors.white, fontSize: 10, ),),
+                  ),
+                ],
               ),
               Container(
                 padding: EdgeInsets.all(8),

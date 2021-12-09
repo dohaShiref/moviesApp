@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/home_layout/movie_detials.dart';
 
 import '../screens/browse_tab.dart';
 import '../screens/search_tab.dart';
@@ -42,7 +43,7 @@ class _homeScreenState extends State<homeScreen> {
     } else if (currentPageIndex == 1) {
       return SearchTab();
     } else if (currentPageIndex == 2) {
-      return BrowseTab();
+      return MovieDetials();
     }
     else{
       return WatchListTab();
