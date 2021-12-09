@@ -15,7 +15,8 @@ class ThemeApp{
       backgroundColor:MyThemeData.darkgray ,
       selectedItemColor: MyThemeData.Primaty_color,
       unselectedItemColor: MyThemeData.gray,
-    )
+    ),
+    scaffoldBackgroundColor: Colors.black
   );
 
  }
