@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies/theme_app/themeApp.dart';
-import 'package:movies/widgets/Recomended_Widet.dart';
+import 'package:movies/widgets/home_widgets/Recomended_Widet.dart';
 
 class MovieDetials extends StatelessWidget{
   static const String routeName = 'moviedetials';
