@@ -1,3 +1,5 @@
+import 'package:movies/models/messegeAndCode.dart';
+
 /// adult : false
 /// backdrop_path : null
 /// belongs_to_collection : null
@@ -24,7 +26,7 @@
 /// vote_average : 0.0
 /// vote_count : 0
 
-class Latest_response {
+class Latest_response extends MessageCode{
   Latest_response({
       bool adult, 
       dynamic backdropPath, 
@@ -37,7 +39,7 @@ class Latest_response {
       String originalLanguage, 
       String originalTitle, 
       String overview, 
-      double popularity, 
+      num popularity,
       dynamic posterPath, 
       List<dynamic> productionCompanies, 
       List<dynamic> productionCountries, 
@@ -49,7 +51,7 @@ class Latest_response {
       String tagline, 
       String title, 
       bool video, 
-      double voteAverage, 
+      num voteAverage,
       int voteCount,}){
     _adult = adult;
     _backdropPath = backdropPath;
@@ -86,7 +88,7 @@ class Latest_response {
     if (json['genres'] != null) {
       _genres = [];
       json['genres'].forEach((v) {
-        _genres.add(dynamic.fromJson(v));
+        _genres.add(Latest_response.fromJson(v));
       });
     }
     _homepage = json['homepage'];
@@ -100,13 +102,13 @@ class Latest_response {
     if (json['production_companies'] != null) {
       _productionCompanies = [];
       json['production_companies'].forEach((v) {
-        _productionCompanies.add(dynamic.fromJson(v));
+        _productionCompanies.add(Latest_response.fromJson(v));
       });
     }
     if (json['production_countries'] != null) {
       _productionCountries = [];
       json['production_countries'].forEach((v) {
-        _productionCountries.add(dynamic.fromJson(v));
+        _productionCountries.add(Latest_response.fromJson(v));
       });
     }
     _releaseDate = json['release_date'];
@@ -115,7 +117,7 @@ class Latest_response {
     if (json['spoken_languages'] != null) {
       _spokenLanguages = [];
       json['spoken_languages'].forEach((v) {
-        _spokenLanguages.add(dynamic.fromJson(v));
+        _spokenLanguages.add(Latest_response.fromJson(v));
       });
     }
     _status = json['status'];
@@ -136,7 +138,7 @@ class Latest_response {
   String _originalLanguage;
   String _originalTitle;
   String _overview;
-  double _popularity;
+  num _popularity;
   dynamic _posterPath;
   List<dynamic> _productionCompanies;
   List<dynamic> _productionCountries;
@@ -148,7 +150,7 @@ class Latest_response {
   String _tagline;
   String _title;
   bool _video;
-  double _voteAverage;
+  num _voteAverage;
   int _voteCount;
 
   bool get adult => _adult;
@@ -162,7 +164,7 @@ class Latest_response {
   String get originalLanguage => _originalLanguage;
   String get originalTitle => _originalTitle;
   String get overview => _overview;
-  double get popularity => _popularity;
+  num get popularity => _popularity;
   dynamic get posterPath => _posterPath;
   List<dynamic> get productionCompanies => _productionCompanies;
   List<dynamic> get productionCountries => _productionCountries;
@@ -174,7 +176,7 @@ class Latest_response {
   String get tagline => _tagline;
   String get title => _title;
   bool get video => _video;
-  double get voteAverage => _voteAverage;
+  num get voteAverage => _voteAverage;
   int get voteCount => _voteCount;
 
   Map<String, dynamic> toJson() {

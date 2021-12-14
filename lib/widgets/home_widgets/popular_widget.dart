@@ -4,7 +4,7 @@ import 'package:movies/models/popular_response.dart';
 
 class PopularWidget extends StatelessWidget {
 
-  Results results;
+  List<Results> results;
 
   PopularWidget(this.results);
 
@@ -15,7 +15,7 @@ class PopularWidget extends StatelessWidget {
         Container(
           height: 190,
           width: double.infinity,
-          child: Image.asset('assets/testPhoto.png'),
+          child: Image.network('https://www.themoviedb.org/t/p/w220_and_h330_face${results[2].posterPath}',fit: BoxFit.fill,),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 60),
@@ -26,7 +26,7 @@ class PopularWidget extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                child: Image.asset('assets/Image.png',fit: BoxFit.cover,height: 170,width: 120,),
+                child: Image.network('https://www.themoviedb.org/t/p/w220_and_h330_face${results[0].posterPath}',fit: BoxFit.cover,height: 170,width: 120,),
               ),
               Image.asset('assets/bookmark.png',height: 40,width: 30,)
             ],
@@ -34,12 +34,12 @@ class PopularWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 150,top: 200),
-          child: Text(results.title ,  style: TextStyle(
+          child: Text(results[1].title ,  style: TextStyle(
               color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 220,left: 150),
-          child: Text('2019  PG-13  2h 7m' ,  style: TextStyle(
+          child: Text(results[1].releaseDate,  style: TextStyle(
             color: Colors.white, fontSize: 10, ),),
         ),
       ],

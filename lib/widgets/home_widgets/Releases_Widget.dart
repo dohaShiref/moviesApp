@@ -15,7 +15,7 @@ class ReleasesWidget extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Image.asset('assets/test.png'),
+          Image.network('https://www.themoviedb.org/t/p/w220_and_h330_face${imageUrl}'),
           InkWell(child: Image.asset(iconBokemark))
         ],
       ),

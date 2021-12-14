@@ -1,3 +1,5 @@
+import 'package:movies/models/messegeAndCode.dart';
+
 /// adult : false
 /// backdrop_path : "/cCvp5Sni75agCtyJkNOMapORUQV.jpg"
 /// belongs_to_collection : null
@@ -24,7 +26,7 @@
 /// vote_average : 8.2
 /// vote_count : 8790
 
-class Details_response {
+class Details_response extends MessageCode{
   Details_response({
       bool adult, 
       String backdropPath, 
@@ -37,7 +39,7 @@ class Details_response {
       String originalLanguage, 
       String originalTitle, 
       String overview, 
-      double popularity, 
+      num popularity,
       String posterPath, 
       List<Production_companies> productionCompanies, 
       List<Production_countries> productionCountries, 
@@ -49,7 +51,7 @@ class Details_response {
       String tagline, 
       String title, 
       bool video, 
-      double voteAverage, 
+      num voteAverage,
       int voteCount,}){
     _adult = adult;
     _backdropPath = backdropPath;
@@ -136,7 +138,7 @@ class Details_response {
   String _originalLanguage;
   String _originalTitle;
   String _overview;
-  double _popularity;
+  num _popularity;
   String _posterPath;
   List<Production_companies> _productionCompanies;
   List<Production_countries> _productionCountries;
@@ -148,7 +150,7 @@ class Details_response {
   String _tagline;
   String _title;
   bool _video;
-  double _voteAverage;
+  num _voteAverage;
   int _voteCount;
 
   bool get adult => _adult;
@@ -162,7 +164,7 @@ class Details_response {
   String get originalLanguage => _originalLanguage;
   String get originalTitle => _originalTitle;
   String get overview => _overview;
-  double get popularity => _popularity;
+  num get popularity => _popularity;
   String get posterPath => _posterPath;
   List<Production_companies> get productionCompanies => _productionCompanies;
   List<Production_countries> get productionCountries => _productionCountries;
@@ -174,7 +176,7 @@ class Details_response {
   String get tagline => _tagline;
   String get title => _title;
   bool get video => _video;
-  double get voteAverage => _voteAverage;
+  num get voteAverage => _voteAverage;
   int get voteCount => _voteCount;
 
   Map<String, dynamic> toJson() {

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeApp.themeData,
       routes: {
         homeScreen.routeName:(buildcontext)=>homeScreen(),
-        MovieDetials.routeName:(buildContext)=>MovieDetials()
+        MovieDetials.routeMovieDetials:(buildContext)=>MovieDetials()
       },
       initialRoute: homeScreen.routeName,
       debugShowCheckedModeBanner: false,
