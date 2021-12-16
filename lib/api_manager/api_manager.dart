@@ -4,6 +4,7 @@ import 'package:movies/models/details_response.dart';
 import 'package:movies/models/latest_response.dart';
 import 'package:movies/models/popular_response.dart';
 import 'package:http/http.dart' as http;
+import 'package:movies/models/search_response.dart';
 import 'package:movies/models/similar_response.dart';
 import 'package:movies/models/toprated_response.dart';
 
@@ -127,6 +128,31 @@ class ApiManager{
     else{
       if(SimilarResponse.message!=null)
         throw Exception(SimilarResponse.message);
+      else throw Exception("error loading popular movies");
+
+    }
+
+
+  }
+
+  static Future<Search_response> apiSearch(String query) async{
+    var parametars={
+      'api_key':apiKey,
+      'query':query
+    };
+    var uri=Uri.https("api.themoviedb.org","/3/search/movie",parametars);
+
+    var response= await http.get(uri);
+    var SearchResponse=Search_response.fromJson(jsonDecode(response.body));
+
+    if(response.statusCode==200)
+    {
+
+      return SearchResponse;
+    }
+    else{
+      if(SearchResponse.message!=null)
+        throw Exception(SearchResponse.message);
       else throw Exception("error loading popular movies");
 
     }
