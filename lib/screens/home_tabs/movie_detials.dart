@@ -40,6 +40,8 @@ class MovieDetials extends StatelessWidget{
                     imgUrl: snapshot.data.posterPath,
                     description: snapshot.data.overview,
                     rate: snapshot.data.voteAverage,
+                    releaseDate: snapshot.data.releaseDate,
+                    title:snapshot.data.title
 
                   );
                 } else if (snapshot.hasError) {
@@ -81,7 +83,8 @@ class MovieDetials extends StatelessWidget{
                                   child:  RecomendedWidet(
                                       iconBokemark: 'assets/bookmark.png',
                                       results: snapshot.data.results,
-                                      index:index
+                                      index:index,
+                                    
                                   ),
                                 );
                               },

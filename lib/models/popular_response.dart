@@ -72,7 +72,9 @@ class Popular_response extends MessageCode{
 /// vote_count : 4398
 
 class Results {
+  static const String collectionName = 'watchlist';
   Results({
+
       bool adult, 
       String backdropPath, 
       List<int> genreIds, 
