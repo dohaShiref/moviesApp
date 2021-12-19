@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/home_layout/SplashScreen.dart';
 import 'package:movies/home_layout/home_layout.dart';
 import 'package:movies/theme_app/themeApp.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeApp.themeData,
       routes: {
         homeScreen.routeName:(buildcontext)=>homeScreen(),
-        MovieDetials.routeMovieDetials:(buildContext)=>MovieDetials()
+        MovieDetials.routeMovieDetials:(buildContext)=>MovieDetials(),
+        SplashScreen.SplashScreenRoute:(buildContext)=>SplashScreen()
       },
       initialRoute: homeScreen.routeName,
       debugShowCheckedModeBanner: false,
