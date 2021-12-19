@@ -153,7 +153,7 @@ class ApiManager{
     else{
       if(SearchResponse.message!=null)
         throw Exception(SearchResponse.message);
-      else throw Exception("error loading popular movies");
+      else throw Exception("Please type your movie name to start searching");
 
     }
 

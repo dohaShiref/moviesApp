@@ -25,34 +25,33 @@ import 'package:movies/models/messegeAndCode.dart';
 /// video : false
 /// vote_average : 0.0
 /// vote_count : 0
-
 class Latest_response extends MessageCode{
   Latest_response({
-      bool adult, 
-      dynamic backdropPath, 
-      dynamic belongsToCollection, 
-      int budget, 
-      List<dynamic> genres, 
-      String homepage, 
-      int id, 
-      dynamic imdbId, 
-      String originalLanguage, 
-      String originalTitle, 
-      String overview, 
-      num popularity,
-      dynamic posterPath, 
-      List<dynamic> productionCompanies, 
-      List<dynamic> productionCountries, 
-      String releaseDate, 
-      int revenue, 
-      int runtime, 
-      List<dynamic> spokenLanguages, 
-      String status, 
-      String tagline, 
-      String title, 
-      bool video, 
-      num voteAverage,
-      int voteCount,}){
+    bool adult,
+    dynamic backdropPath,
+    dynamic belongsToCollection,
+    int budget,
+    List<dynamic> genres,
+    String homepage,
+    int id,
+    dynamic imdbId,
+    String originalLanguage,
+    String originalTitle,
+    String overview,
+    num popularity,
+    dynamic posterPath,
+    List<dynamic> productionCompanies,
+    List<dynamic> productionCountries,
+    String releaseDate,
+    int revenue,
+    int runtime,
+    List<dynamic> spokenLanguages,
+    String status,
+    String tagline,
+    String title,
+    bool video,
+    num voteAverage,
+    int voteCount,}){
     _adult = adult;
     _backdropPath = backdropPath;
     _belongsToCollection = belongsToCollection;
@@ -78,7 +77,7 @@ class Latest_response extends MessageCode{
     _video = video;
     _voteAverage = voteAverage;
     _voteCount = voteCount;
-}
+  }
 
   Latest_response.fromJson(dynamic json) {
     _adult = json['adult'];

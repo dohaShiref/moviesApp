@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movies/home_layout/home_layout.dart';
 import 'package:movies/theme_app/themeApp.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'screens/home_tabs/movie_detials.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp( MyApp());
 }
 

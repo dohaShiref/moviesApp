@@ -1,14 +1,23 @@
 
 import 'package:flutter/material.dart';
+import 'package:movies/firebase_utils/firebase_utils.dart';
 import 'package:movies/theme_app/themeApp.dart';
 
-class DetailsItem extends StatelessWidget {
+class DetailsItem extends StatefulWidget {
   String imgUrl;
   String description;
   double rate;
+  String releaseDate;
+  String title;
 
-  DetailsItem({this.imgUrl, this.description, this.rate});
+  DetailsItem({this.imgUrl, this.description, this.rate,this.releaseDate,this.title});
 
+  @override
+  _DetailsItemState createState() => _DetailsItemState();
+}
+
+class _DetailsItemState extends State<DetailsItem> {
+  bool isAddedToWatchlist=false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,9 +27,15 @@ class DetailsItem extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                child: Image.asset('https://www.themoviedb.org/t/p/w220_and_h330_face${imgUrl}',fit: BoxFit.cover,height: 170,width: 120,),
+                child: Image.asset('https://www.themoviedb.org/t/p/w220_and_h330_face${widget.imgUrl}',fit: BoxFit.cover,height: 170,width: 120,),
               ),
-              Image.asset('assets/bookmark.png',height: 40,width: 30,)
+              InkWell(
+                child: Image.asset(isAddedToWatchlist?'assets/bookmarkgold.png':'assets/bookmark.png',),
+                onTap: (){
+                  addWatchList(widget.title,widget.imgUrl,widget.releaseDate,context);
+                },
+
+              )
             ],
           ),
         ),
@@ -91,14 +106,14 @@ class DetailsItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 13.0),
-              child: Text('${description}',
+              child: Text('${widget.description}',
                   style: TextStyle(
                     color: Colors.white, fontSize: 13, )),
             ),
             Row(
               children: [
                 Icon(Icons.star,color: MyThemeData.Primaty_color,size: 20,),
-                Text('${rate}',
+                Text('${widget.rate}',
                     style: TextStyle(
                         color: Colors.white, fontSize: 18,fontWeight: FontWeight.w500 ))
               ],
@@ -108,5 +123,18 @@ class DetailsItem extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void addWatchList(String title,String imgUrl,String publishDate,context) {
+    addWatchlistToFirebase(title,imgUrl,publishDate).then((value) {
+      setState(() {
+        isAddedToWatchlist=true;
+      });
+
+    }).onError((error, stackTrace) {
+      print('erorrrrrrrrrrrrrrrrrrrrrrrrrrr${error.toString()}');
+    }).timeout(Duration(seconds: 30), onTimeout: () {
+      print('timeout');
+    });
   }
 }

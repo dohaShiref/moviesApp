@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/api_manager/api_manager.dart';
+import 'package:movies/firebase_utils/firebase_utils.dart';
 import 'package:movies/models/latest_response.dart';
 import 'package:movies/models/popular_response.dart';
 import 'package:movies/models/toprated_response.dart';
@@ -10,9 +11,16 @@ import 'package:movies/widgets/home_widgets/Recomended_Widet.dart';
 import 'package:movies/widgets/home_widgets/Releases_Widget.dart';
 import 'package:movies/widgets/home_widgets/popular_widget.dart';
 
-class HomeTab extends StatelessWidget{
+class HomeTab extends StatefulWidget{
   static const String routeName = 'home';
+
+  @override
+  _HomeTabState createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
   int index;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -66,6 +74,8 @@ class HomeTab extends StatelessWidget{
                                       child: ReleasesWidget(
                                         iconBokemark: 'assets/bookmark.png',
                                         imageUrl: snapshot.data.posterPath,
+                                        title:snapshot.data.title,
+                                        releaseDate:snapshot.data.releaseDate
                                       ),
                                     );
                                   },
@@ -142,5 +152,6 @@ class HomeTab extends StatelessWidget{
       ),
     );
   }
+
 
 }
