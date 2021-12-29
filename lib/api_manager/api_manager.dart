@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:movies/models/categort_details.dart';
+import 'package:movies/models/category_response.dart';
 import 'package:movies/models/details_response.dart';
 import 'package:movies/models/latest_response.dart';
 import 'package:movies/models/popular_response.dart';
@@ -153,6 +155,31 @@ class ApiManager{
     else{
       if(SearchResponse.message!=null)
         throw Exception(SearchResponse.message);
+      else throw Exception("Please type your movie name to start searching");
+
+    }
+
+
+  }
+
+  static Future<CategoryResponse> apiCategory() async{
+    var parametars={
+      'api_key':apiKey,
+
+    };
+    var uri=Uri.https("api.themoviedb.org", "/3/genre/movie/list",parametars);
+
+    var response= await http.get(uri);
+    var categoryResponce=CategoryResponse.fromJson(jsonDecode(response.body));
+
+    if(response.statusCode==200)
+    {
+
+      return categoryResponce;
+    }
+    else{
+      if(categoryResponce.message!=null)
+        throw Exception(categoryResponce.message);
       else throw Exception("error loading popular movies");
 
     }
@@ -160,7 +187,30 @@ class ApiManager{
 
   }
 
+  static Future<CategortDetailsRespose> apiCategoryDetailsFilter() async{
+    var parametars={
+      'api_key':apiKey,
 
+    };
+    var uri=Uri.https("api.themoviedb.org", "/3/discover/movie",parametars);
+
+    var response= await http.get(uri);
+    var categoryDetailsResponce=CategortDetailsRespose.fromJson(jsonDecode(response.body));
+
+    if(response.statusCode==200)
+    {
+
+      return categoryDetailsResponce;
+    }
+    else{
+      if(categoryDetailsResponce.message!=null)
+        throw Exception(categoryDetailsResponce.message);
+      else throw Exception("error loading popular movies");
+
+    }
+
+
+  }
 
 
 
